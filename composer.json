@@ -1,0 +1,20 @@
+{
+    "name": "midesweb/reading-time",
+    "description": "Reading time PHP class calculator",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Midesweb\\ReadingTime\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "midesweb",
+            "email": "miguel@desarrolloweb.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    }
+}
