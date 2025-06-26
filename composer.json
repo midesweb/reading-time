@@ -8,6 +8,11 @@
             "Midesweb\\ReadingTime\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Midesweb\\Tests\\ReadingTime\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "midesweb",
@@ -16,5 +21,8 @@
     ],
     "require": {
         "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.2"
     }
 }

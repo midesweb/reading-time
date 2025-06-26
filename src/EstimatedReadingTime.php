@@ -39,7 +39,7 @@ class EstimatedReadingTime {
       $minutes++;
     }
 
-    return $minutes;
+    return $minutes < 1 ? 1 : $minutes;
   }
 
   public function getReadTime() {
