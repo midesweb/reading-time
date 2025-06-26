@@ -7,7 +7,7 @@ class EstimatedReadingTime {
   private $content;
   private $language = "EN";
 
-  private const SUPPORTED_LANGUAGES = ['EN', 'ES'];
+  private const SUPPORTED_LANGUAGES = ['EN', 'ES', 'FR'];
 
   public function __construct(string $content)
   {
@@ -55,7 +55,14 @@ class EstimatedReadingTime {
                  ($remainingMinutes > 0 ? " y {$remainingMinutes} minuto" . ($remainingMinutes > 1 ? "s" : "") : "");
         }
         return "{$minutes} minuto" . ($minutes > 1 ? "s" : "");
-      
+
+      case 'FR':
+        if ($hours > 0) {
+            return "{$hours} heure" . ($hours > 1 ? "s" : "") . 
+                    ($remainingMinutes > 0 ? " et {$remainingMinutes} minute" . ($remainingMinutes > 1 ? "s" : "") : "");
+        }
+        return "{$minutes} minute" . ($minutes > 1 ? "s" : "");
+
       case 'EN':
       default:
         if ($hours > 0) {
