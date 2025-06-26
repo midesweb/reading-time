@@ -1,12 +1,12 @@
-permissions:
-  contents: write
-
 name: Create Release
 
 on:
   push:
     tags:
       - 'v*.*.*'
+
+permissions:
+  contents: write
 
 jobs:
   release:
@@ -18,4 +18,4 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          generate_release_notes: true
