@@ -36,16 +36,22 @@ class EstimatedReadingTime {
     return $this;
   }
 
-  public function getEstimatedReadingMinutes() {
+  public function getEstimatedReadingSeconds() {
     $words = str_word_count(strip_tags($this->content));
-    $minutes = floor($words / $this->speed);
-    $seconds = floor($words % $this->speed / ($this->speed / 60));
+    $seconds = floor($words / $this->speed * 60);
 
-    if ($seconds > 30) {
-      $minutes++;
-    }
+    return $seconds < 1 ? 1 : $seconds;
+  }
 
-    return $minutes < 1 ? 1 : $minutes;
+  public function getEstimatedReadingMinutes() {
+      $seconds = $this->getEstimatedReadingSeconds();
+      $minutes = floor($seconds / 60);
+
+      if ($seconds % 60 > 30) {
+          $minutes++;
+      }
+
+      return $minutes < 1 ? 1 : $minutes;
   }
 
   public function getReadTime() {
