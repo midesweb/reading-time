@@ -52,4 +52,14 @@ class EstimatedReadingTimeTest extends TestCase
 
     $this->assertEquals('1 heure', $readTime);
   }
+
+  #[Test]
+  public function itCalculatesCorrectMinutesChangingSeepd() 
+  {
+    $speed = 150;
+    $content = str_repeat("palabra ", $speed * 30);
+    $readTimeCalculator = new EstimatedReadingTime($content);
+    $minutes = $readTimeCalculator->setReadingWordsPerMinute($speed)->getEstimatedReadingMinutes();
+    $this->assertEquals(30, $minutes);
+  }
 }

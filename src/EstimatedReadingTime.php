@@ -6,6 +6,7 @@ class EstimatedReadingTime {
 
   private $content;
   private $language = "EN";
+  private $speed = 120;
 
   private const SUPPORTED_LANGUAGES = ['EN', 'ES', 'FR'];
 
@@ -27,13 +28,18 @@ class EstimatedReadingTime {
     }
 
     $this->language = $lang;
-    return $this; // permite encadenamiento
+    return $this;
+  }
+
+  public function setReadingWordsPerMinute($speed) {
+    $this->speed = $speed;
+    return $this;
   }
 
   public function getEstimatedReadingMinutes() {
     $words = str_word_count(strip_tags($this->content));
-    $minutes = floor($words / 120);
-    $seconds = floor($words % 120 / (120 / 60));
+    $minutes = floor($words / $this->speed);
+    $seconds = floor($words % $this->speed / ($this->speed / 60));
 
     if ($seconds > 30) {
       $minutes++;
