@@ -17,6 +17,14 @@ class EstimatedReadingTimeTest extends TestCase
   }
 
   #[Test]
+  public function itEstimatesReadingTimeOneSecondMinimum() 
+  {
+    $readTimeCalculator = new EstimatedReadingTime('');
+    $seconds = $readTimeCalculator->getEstimatedReadingSeconds();
+    $this->assertEquals(1, $seconds);
+  }
+
+  #[Test]
   public function itGetCorrectReadTimeInEnglish()
   {
     $content = str_repeat("palabra ", 250);
