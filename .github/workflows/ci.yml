@@ -10,6 +10,9 @@ jobs:
   tests:
     name: Run Unit Tests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [8.1, 8.2, 8.3]
 
     steps:
       - name: Checkout repository
@@ -17,6 +20,8 @@ jobs:
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
