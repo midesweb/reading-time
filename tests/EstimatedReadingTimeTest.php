@@ -21,7 +21,7 @@ class EstimatedReadingTimeTest extends TestCase
   {
     $content = str_repeat("palabra ", 250); // Genera 250 palabras
     $estimator = new EstimatedReadingTime($content);
-    // $estimator->setLanguage('es');
+    $estimator->setLanguage('es');
 
     $readTime = $estimator->getReadTime();
 
