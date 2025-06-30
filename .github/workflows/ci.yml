@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [8.1, 8.2, 8.3]
+        php: [8.2, 8.3]
 
     steps:
       - name: Checkout repository
@@ -28,6 +28,6 @@ jobs:
 
       - name: Run PHP CS Fixer check
         run: vendor/bin/php-cs-fixer fix --dry-run --diff
-        
+
       - name: Run Tests
         run: vendor/bin/phpunit
