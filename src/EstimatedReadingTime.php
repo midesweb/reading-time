@@ -35,7 +35,7 @@ class EstimatedReadingTime
         return $this;
     }
 
-    public function setReadingWordsPerMinute($speed)
+    public function setReadingWordsPerMinute($speed): static
     {
         $this->speed = $speed;
         return $this;
